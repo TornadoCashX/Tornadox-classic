@@ -1,0 +1,37 @@
+// Ports Buefy's <transition name="fade"> wrapper around every b-notification (see
+// Notification.vue in node_modules/buefy - each card mounts inside a Vue fade transition,
+// not instantly). React has no equivalent primitive, so this recreates just the entrance half
+// as a plain CSS animation on mount: a newly appended <article> (this project mounts a fresh
+// DOM node per notice.id, never reuses one) fades and slides in instead of snapping into the
+// flex stack at full opacity in a single frame, which is what produced a visible one-frame
+// flash where the stack hadn't settled into position yet - directly behind, whatever the page
+// had at that spot (here, the Navbar's Settings button) painted through for that frame.
+@keyframes notice-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notices .notification {
+  animation: notice-fade-in 200ms ease-out;
+}
+
+// Buefy's own _notices.scss gives `.notices` a flat `padding: 2em` on every side, sized for a
+// page with no fixed-position chrome at the very top. This project's Navbar is itself
+// `position: relative` sitting in normal flow at ~74px tall, but `.notices` is `position: fixed`
+// relative to the *viewport*, not the document - so a plain 2em (32px) top padding still lands
+// the notification stack squarely inside the navbar's own box, overlapping its buttons.
+// Widening just the top padding clears the navbar outright instead of relying on stacking order
+// alone to keep the navbar's content from ever showing through.
+// !important: Vite injects this component-scoped stylesheet at a point in the cascade that
+// doesn't reliably win against Buefy's own bundled `.notices { padding: 2em }` (styles/
+// components/_base.scss's `~buefy/src/scss/buefy` import) on plain specificity/source-order
+// alone - same fix as Navbar.scss's icon spacing override for the same underlying reason.
+.notices {
+  padding-top: calc(74px + 1em) !important;
+}

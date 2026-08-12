@@ -1,0 +1,144 @@
+
+.dropdown.is-mobile-modal {
+  &.is-expanded {
+    width: 100%;
+
+    .dropdown-trigger,
+    .dropdown-menu {
+      width: 100%;
+    }
+  }
+
+  .dropdown-trigger {
+    appearance: none;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    text-align: left;
+
+    .control {
+      .input {
+        &::after {
+          border: 2px solid $primary;
+          border-radius: 2px;
+          border-right: 0;
+          border-top: 0;
+          content: " ";
+          display: block;
+          margin-top: -0.5em;
+          pointer-events: none;
+          position: absolute;
+          top: 50%;
+          transform: rotate(-45deg);
+          transform-origin: center;
+          height: .625em;
+          width: .625em;
+          right: 1.125em;
+          transition: border-color .15s ease-in-out;
+        }
+
+        &:hover {
+          &::after {
+            border-color: $white;
+          }
+        }
+      }
+
+      &.is-loading {
+        .input {
+          &::after {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+
+        &::after {
+          height: 1.143rem;
+          width: 1.143rem;
+          right: .86rem;
+          top: .86rem;
+          border-radius: 1.143rem;
+        }
+      }
+    }
+  }
+
+  &.is-expanded .dropdown-menu{
+    @include touch {
+      max-width: 460px;
+    }
+  }
+
+  .dropdown-menu {
+    > .dropdown-content {
+      overflow: hidden;
+      margin: 1px;
+
+      > .dropdown-item {
+        appearance: none;
+        width: 100%;
+        border: 0;
+        background: $dark;
+        color: $white;
+        font-family: inherit;
+        text-align: left;
+        cursor: pointer;
+        font-size: 1rem;
+        padding: 0.675rem 1.25rem;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out;
+
+        &:hover,
+        &:focus-visible,
+        &.is-active {
+          background: $primary;
+          color: $primary-invert;
+          outline: none;
+        }
+      }
+    }
+  }
+
+  &.is-active {
+    .dropdown-trigger {
+      .control {
+        .input {
+          border-color: $primary;
+
+          &::after {
+            border-color: $primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dropdown-langs {
+  margin-bottom: .5rem;
+
+  .dropdown-menu {
+    min-width: auto;
+    padding-top: 0;
+    padding-bottom: 4px;
+  }
+
+  &.is-mobile-modal {
+    .dropdown-menu {
+      // !important: Vite's Sass pipeline resolves this stylesheet's cascade order
+      // differently from Nuxt/webpack's, so buefy's own mobile-modal max-width:460px
+      // rule (same specificity) otherwise wins the source-order tiebreak here.
+      max-width: 100px !important;
+    }
+  }
+
+  .dropdown-item {
+    padding-right: 1rem;
+    line-height: 24px;
+  }
+
+  .button {
+    margin-bottom: 0;
+  }
+}

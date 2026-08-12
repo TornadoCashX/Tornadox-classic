@@ -1,0 +1,45 @@
+import Ajv from 'ajv'
+
+import relayerSchemas from './relayer'
+
+const ajv = new Ajv({ allErrors: true, schemas: relayerSchemas })
+
+ajv.addKeyword('BN', {
+  validate: (schema, data) => {
+    try {
+      BigInt(data)
+      return true
+    } catch (e) {
+      return false
+    }
+  },
+  errors: true
+})
+
+function getRelayerValidateFunction(netId) {
+  switch (netId) {
+    case 56:
+      return ajv.getSchema('bscRelayer')
+    case 61:
+      return ajv.getSchema('etcRelayer')
+    case 100:
+      return ajv.getSchema('xdaiRelayer')
+    case 137:
+      return ajv.getSchema('polygonRelayer')
+    case 43114:
+      return ajv.getSchema('avalancheRelayer')
+    case 11155111:
+      return ajv.getSchema('sepoliaRelayer')
+
+    case 10:
+    case 42161:
+      return ajv.getSchema('l2Relayer')
+
+    default:
+      return ajv.getSchema('defaultRelayer')
+  }
+}
+
+export default {
+  getRelayerValidateFunction
+}

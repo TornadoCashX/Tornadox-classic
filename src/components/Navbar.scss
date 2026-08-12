@@ -1,0 +1,42 @@
+// Ported from components/NetworkNavbarIcon.vue's <style scoped> block, which lives outside
+// assets/styles/ (component-local Vue SFC styles aren't in the copied global stylesheet tree).
+//
+// !important throughout: Vite's CSS cascade order differs from Nuxt/webpack's Vue-scoped-style
+// output (which effectively out-specificities Bulma's base .button via injected data
+// attributes), so these same-specificity overrides otherwise lose to Bulma's plain .button
+// (border: 1px solid #666, background-color: #181818, padding: 0 1.25em).
+.network-button {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 0 !important;
+  border: 0 !important;
+  background-color: #242424 !important;
+
+  &:hover {
+    color: #fff;
+    background-color: #393939 !important;
+  }
+
+  .icon {
+    // !important: Vite's CSS cascade order differs from Nuxt/webpack's Vue-scoped-style
+    // output (which effectively out-specificities .icon.is-small via injected data
+    // attributes), so this same-specificity override otherwise loses to Bulma's
+    // .icon.is-small { height/width: 1.5rem }.
+    height: 2.857em !important;
+    width: 2.857em !important;
+    background-color: #0f1f19;
+    border: 1px solid #94febf;
+    border-radius: 4px;
+
+    // !important: same Bulma-cascade-order issue as above - Bulma's own
+    // .button .icon:first-child:not(:last-child) rule (elements/button.sass) sets a smaller
+    // margin-right and otherwise wins at equal specificity.
+    &:first-child:not(:last-child) {
+      margin-right: 1em !important;
+    }
+
+    .trnd {
+      background-color: #94febf;
+    }
+  }
+}

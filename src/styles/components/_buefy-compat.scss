@@ -1,0 +1,215 @@
+// Minimal styles for the small set of Buefy-compatible class names retained by the React port.
+// Keeping them local avoids shipping every Buefy component and its Vue 2 peer dependency.
+$tooltip-arrow-size: 5px;
+$tooltip-arrow-margin: 2px;
+$speed-slow: 150ms;
+$easing: ease-out;
+
+.b-tabs .tabs {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.b-checkbox.checkbox,
+.b-radio.radio {
+  display: inline-flex;
+  align-items: center;
+  outline: none;
+
+  input {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .control-label {
+    padding-left: $control-padding-horizontal;
+  }
+}
+
+.b-radio.radio input + .check {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  width: 1.25em;
+  height: 1.25em;
+  cursor: pointer;
+  border: 2px solid $grey;
+  border-radius: 50%;
+}
+
+.b-steps .steps {
+  min-height: 2rem;
+
+  .step-items {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .step-item {
+    position: relative;
+    flex: 1 1 1em;
+  }
+
+  .step-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $body-color;
+  }
+
+  .step-marker {
+    z-index: 1;
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: $steps-marker-default-border;
+    border-radius: 50%;
+    background: $steps-maker-default-color;
+  }
+
+  .step-details {
+    z-index: 1;
+    text-align: center;
+  }
+}
+
+.b-steps.is-small .steps {
+  font-size: $size-small;
+  min-height: $size-small * 2;
+
+  .step-marker {
+    width: $size-small * 2;
+    height: $size-small * 2;
+  }
+
+  .step-title {
+    font-size: $size-small * 1.2;
+    font-weight: $weight-semibold;
+    line-height: $size-small;
+  }
+}
+
+.b-skeleton {
+  display: inline-flex;
+  width: 100%;
+  flex-direction: column;
+  vertical-align: middle;
+
+  > .b-skeleton-item {
+    width: 100%;
+    background: linear-gradient(90deg, $grey-lighter 25%, rgba($grey-lighter, 0.5) 50%, $grey-lighter 75%);
+    background-size: 400% 100%;
+
+    &.is-rounded { border-radius: $radius; }
+    &::after { content: '\00a0'; }
+  }
+
+  &.is-animated > .b-skeleton-item { animation: skeleton-loading 1.5s infinite; }
+}
+
+@keyframes skeleton-loading {
+  from { background-position: 100% 50%; }
+  to { background-position: 0 50%; }
+}
+
+.loading-overlay {
+  @include overlay;
+  z-index: 29;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &.is-active { display: flex; }
+  &.is-full-page { position: fixed; z-index: 999; }
+  .loading-background { @include overlay; }
+}
+
+.notices {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  padding: 2em;
+  flex-direction: column;
+  overflow: hidden;
+  pointer-events: none;
+
+  .notification {
+    max-width: 600px;
+    align-self: flex-end;
+    pointer-events: auto;
+  }
+}
+
+.modal .animation-content {
+  width: calc(100% - 40px);
+  max-width: 440px;
+  margin: 0;
+
+  .modal-card {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.b-tooltip {
+  position: relative;
+  display: inline-flex;
+
+  .tooltip-trigger { width: 100%; }
+  .tooltip-content {
+    position: absolute;
+    z-index: 38;
+    width: auto;
+    padding: 0.35rem 0.75rem;
+    border-radius: $radius-large;
+    background: $primary;
+    color: $primary-invert;
+    font-size: 0.85rem;
+    font-weight: $weight-normal;
+    white-space: nowrap;
+    box-shadow: 0 1px 2px 1px rgba(0, 1, 0, 0.2);
+
+    &::before {
+      position: absolute;
+      z-index: 38;
+      content: '';
+      pointer-events: none;
+    }
+  }
+
+  &.is-dark-tooltip .tooltip-content { background: $dark-tooltip; color: $gray; }
+  &.is-warning .tooltip-content { background: $warning; color: $warning-invert; }
+  &.is-multiline .tooltip-content { text-align: center; white-space: normal; }
+  &.is-multiline.is-small .tooltip-content { width: 180px; }
+  &.is-multiline.is-medium .tooltip-content { width: 240px; }
+  &.is-multiline.is-large .tooltip-content { width: 300px; }
+
+  &.is-top .tooltip-content {
+    bottom: calc(100% + #{$tooltip-arrow-size + $tooltip-arrow-margin});
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &.is-bottom .tooltip-content {
+    top: calc(100% + #{$tooltip-arrow-size + $tooltip-arrow-margin});
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &.is-right .tooltip-content {
+    top: 50%;
+    left: calc(100% + #{$tooltip-arrow-size + $tooltip-arrow-margin});
+    transform: translateY(-50%);
+  }
+  &.is-left .tooltip-content {
+    top: 50%;
+    right: calc(100% + #{$tooltip-arrow-size + $tooltip-arrow-margin});
+    transform: translateY(-50%);
+  }
+}

@@ -1,0 +1,42 @@
+// Bulma's `.label:not(:last-child) { margin-bottom: 0.5em; }` relies on the note label
+// having a trailing sibling (classic keeps a v-show-hidden etherscan link in the DOM next to
+// it); this component doesn't render that link, so the label ends up as :last-child and loses
+// the margin. Restore it explicitly instead of adding an unused link element.
+.label-with-buttons .label {
+  margin-bottom: 0.5em;
+}
+
+// Mirrors Withdraw.vue's .slide-animation: a green fill that grows across the Withdraw button
+// as the ~9.6MB SNARK proving key downloads (see the --width-animation custom property set from
+// WithdrawTab.tsx's getTornadoKeys(setKeysProgress) callback). Classic sets --width-animation on
+// :root (a page-wide CSS var); here it's set as an inline style on the button itself instead -
+// custom properties inherit down the DOM the same way, so the :before below still picks it up,
+// without a component reaching out to mutate document.documentElement directly.
+.slide-animation {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--width-animation, 0%);
+    height: 100%;
+    background-color: #94febf;
+    animation-fill-mode: backwards;
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+  }
+
+  &.slide-animation-active {
+    span,
+    &:after {
+      filter: invert(0.5);
+    }
+  }
+}

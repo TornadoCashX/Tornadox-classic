@@ -1,0 +1,72 @@
+// Ported from components/NetworkModal.vue's <style scoped> block (component-local Vue SFC
+// styles aren't in the copied global stylesheet tree). Vue's `<style scoped>` only ever applied
+// this to NetworkModal's own instance (via injected data-v-xxx attributes) - `is-wallet-modal`
+// is a plain DOM class classic ALSO puts on the unrelated web3Connect/Modal.vue (wallet-picker)
+// card, which never gets this narrowing in classic since that's a different Vue component/scope.
+// Target the web-react-only `network-modal-card` marker instead so the 300px cap stays local to
+// this modal.
+//
+// !important: Vite's CSS cascade order is nondeterministic relative to Nuxt/webpack's
+// Vue-scoped-style output across reloads (same pattern as Navbar.scss/_dropdown.scss), so
+// this same-specificity override can otherwise lose to Buefy's default .box-modal/.modal-card
+// width and render full-size instead of the compact 300px card.
+.box-modal.network-modal-card {
+  max-width: 300px !important;
+  margin: 0 auto !important;
+}
+
+.networks {
+  .item {
+    appearance: none;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: center;
+    margin: 14px 0;
+    display: flex;
+    align-items: center;
+    font-size: 0.929rem;
+
+    b {
+      font-weight: 400;
+    }
+
+    .network-icon {
+      margin-right: 12px;
+
+      .trnd {
+        height: 1.571rem;
+        width: 1.571rem;
+      }
+    }
+
+    .network-checkbox {
+      margin-left: auto;
+      height: 22px;
+      width: 22px;
+      border-radius: 100%;
+      border: 1px solid #6b6b6b;
+      transition: border-color 0.15s ease-in-out;
+    }
+
+    &.is-active {
+      .network-checkbox {
+        border-color: #94febf;
+        background-color: #94febf;
+        background-image: url('../img/icons/checkbox.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &:hover {
+      .network-checkbox {
+        border-color: #94febf;
+      }
+    }
+  }
+}

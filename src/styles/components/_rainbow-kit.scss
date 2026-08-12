@@ -1,0 +1,17 @@
+// The connect modal uses RainbowKit's stock darkTheme (see ../../App.tsx), so nothing here
+// restyles it. The one thing the Theme API cannot express is a removal: the compact-mode footer
+// - a divider line + an empty padded box left over once
+// appInfo.disclaimer is set to a component that renders null (App.tsx) - isn't reachable through
+// that API at all; there's no prop to omit the block outright, only to swap its content (see
+// RainbowKit's own DesktopOptions source: `compactModeEnabled && Fragment(divider, Disclaimer ?
+// <Disclaimer/> : defaultFooter)` - the wrapping Box and its padding render regardless of what
+// Disclaimer returns). RainbowKit's components carry no public class names or test ids for this,
+// only vanilla-extract's content-hashed atomic classes, which aren't safe to depend on directly -
+// so this targets them structurally instead, verified by walking the live DOM: the wallet-picker
+// step's flex-column wrapper (class `_1vwt0cg4`, one of the few non-hashed/stable class names
+// vanilla-extract emits here) has exactly 4 children - step header, the wallet list, then the
+// divider and footer box as the last two, with nothing after them. `[data-rk]` is RainbowKit's own
+// documented scoping attribute for exactly this kind of override, so this can't leak elsewhere.
+[data-rk] ._1vwt0cg4 > *:nth-last-child(-n + 2) {
+  display: none;
+}

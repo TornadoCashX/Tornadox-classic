@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /events/
+Disallow: /trees/
+Disallow: /tornado-29a1cc5303d99516.json.zlib
+Disallow: /tornadoProvingKey-6b8874fcf0400ad3.bin.zlib
+
+Sitemap: https://tornadox.one/sitemap.xml

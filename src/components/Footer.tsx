@@ -54,7 +54,7 @@ const Footer = () => {
                   </a>
                   <a
                     className="button is-icon"
-                    href="https://github.com/williamdrivera/tornadocash-classic"
+                    href="https://github.com/TornadoCashX/Tornadox-classic"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Tornado Cash source code on GitHub"

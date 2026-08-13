@@ -356,5 +356,30 @@
     "fee": "Fee"
   },
   "withdrawalQueueIsOverloaded": "Withdrawal queue is overloaded",
-  "freezeRisk": "{currency} es un token centralizado con riesgo de congelación."
+  "freezeRisk": "{currency} es un token centralizado con riesgo de congelación.",
+  "seo": {
+    "home": {
+      "title": "Transacciones privadas con Tornado Cash",
+      "description": "Usa esta app independiente Tornadocash / Tornado Cash como crypto mixer para privacy transactions, depósitos privados y retiros en Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche, Ethereum Classic y Sepolia testnet."
+    },
+    "faq": {
+      "whatIsTornado": {
+        "question": "¿Qué es Tornado Cash?",
+        "answer": "Tornado Cash es un protocolo de privacidad no custodial que usa contratos inteligentes y pruebas de conocimiento cero para reducir el vínculo público entre una dirección de depósito y una dirección de retiro."
+      },
+      "cryptoMixer": {
+        "question": "¿Qué es un crypto mixer?",
+        "answer": "Un crypto mixer es una herramienta de privacidad que dificulta seguir el rastro de las transacciones en blockchain. Tornado Cash usa pools compartidos y pruebas criptográficas en lugar de un operador custodial, lo que ayuda a reducir el vínculo público entre depósitos y retiros."
+      },
+      "supportedChains": {
+        "question": "¿Qué cadenas son compatibles?",
+        "answer": "Las redes compatibles incluyen Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche, Ethereum Classic y Sepolia testnet."
+      },
+      "privateDeposits": {
+        "question": "¿Cómo funcionan los depósitos y retiros privados?",
+        "answer": "Un depósito privado crea una nota y añade un compromiso a un pool de contrato inteligente. Un retiro usa una prueba de conocimiento cero para demostrar que existe una nota válida no gastada sin revelar qué depósito creó la prueba."
+      },
+      "label": "Preguntas frecuentes de Tornado Cash"
+    }
+  }
 }

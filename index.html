@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Access the Tornado Cash interface for deposits and withdrawals across supported EVM networks using non-custodial smart contracts and zero-knowledge proofs."
+      content="Use an independent Tornado Cash app for privacy transactions, private deposits, withdrawals and compliance reports on Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche and Ethereum Classic."
+    />
+    <meta
+      name="keywords"
+      content="tornadocash, tornado cash, Tornado Cash, Crypto Mixer, crypto mixer, cryptocurrency mixer, privacy transactions, private transactions, 隐私交易, Ethereum privacy, BNB Chain privacy, BSC privacy, Polygon privacy, Arbitrum privacy, Optimism privacy, Gnosis Chain privacy, Avalanche privacy, Ethereum Classic privacy, Sepolia testnet, private deposits, private withdrawals, deposit, withdraw, compliance report, zero-knowledge proofs, zk-SNARK, relayers, non-custodial smart contracts"
     />
     <meta name="robots" content="index, follow" />
     <meta name="referrer" content="no-referrer" />
@@ -14,41 +18,89 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Tornado Cash" />
-    <meta property="og:title" content="Tornado Cash Interface | Deposit &amp; Withdraw" />
+    <meta property="og:title" content="Tornado Cash Privacy Transactions | Crypto Mixer" />
     <meta
       property="og:description"
-      content="Access the Tornado Cash interface for deposits and withdrawals across supported EVM networks using non-custodial smart contracts and zero-knowledge proofs."
+      content="Use an independent Tornado Cash app for privacy transactions, private deposits, withdrawals and compliance reports on Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche and Ethereum Classic."
     />
     <meta property="og:url" content="https://tornadox.one/" />
     <meta property="og:image" content="https://tornadox.one/favicon/android-chrome-512x512.png" />
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
-    <meta property="og:image:alt" content="Tornado Cash interface" />
+    <meta property="og:image:alt" content="Tornado Cash app" />
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Tornado Cash Interface | Deposit &amp; Withdraw" />
+    <meta name="twitter:title" content="Tornado Cash Privacy Transactions | Crypto Mixer" />
     <meta
       name="twitter:description"
-      content="Access the Tornado Cash interface for deposits and withdrawals across supported EVM networks using non-custodial smart contracts and zero-knowledge proofs."
+      content="Use an independent Tornado Cash app for privacy transactions, private deposits, withdrawals and compliance reports on Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche and Ethereum Classic."
     />
     <meta name="twitter:image" content="https://tornadox.one/favicon/android-chrome-512x512.png" />
-    <meta name="twitter:image:alt" content="Tornado Cash interface" />
+    <meta name="twitter:image:alt" content="Tornado Cash app" />
     <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
-    <title>Tornado Cash Interface | Deposit &amp; Withdraw</title>
+    <title>Tornado Cash Privacy Transactions | Crypto Mixer</title>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Tornado Cash",
-        "alternateName": "Tornado Cash Interface",
+        "@type": "WebApplication",
+        "name": "Tornado Cash Privacy Transactions",
+        "alternateName": "TornadoCash Crypto Mixer App",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "description": "Use an independent Tornado Cash app for privacy transactions, private deposits, withdrawals and compliance reports on Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche and Ethereum Classic.",
         "url": "https://tornadox.one/"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Tornado Cash?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tornado Cash is a non-custodial privacy protocol that uses smart contracts and zero-knowledge proofs to reduce the public link between a deposit address and a withdrawal address."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a crypto mixer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A crypto mixer is a privacy tool that makes blockchain transaction trails harder to follow. Tornado Cash uses shared pools and cryptographic proofs rather than a custodial operator, helping reduce the public link between deposit and withdrawal activity."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which chains are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Supported networks include Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche, Ethereum Classic and Sepolia testnet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do private deposits and withdrawals work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A private deposit creates a note and adds a commitment to a smart-contract pool. A withdrawal uses a zero-knowledge proof to show that a valid unspent note exists without revealing which deposit created the proof."
+            }
+          }
+        ]
       }
     </script>
   </head>
   <body>
     <div id="app"></div>
+    <script>
+      window.__APP_PUBLIC_ENV__ = {
+        VITE_ENABLED_CHAINS: '%VITE_ENABLED_CHAINS%'
+      }
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

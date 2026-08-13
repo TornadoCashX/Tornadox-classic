@@ -3,6 +3,7 @@ import { walletConnectWallet } from '@rainbow-me/rainbowkit/wallets'
 import { mainnet, bsc, optimism, polygon, arbitrum, gnosis, avalanche, sepolia } from 'wagmi/chains'
 import type { Config } from 'wagmi'
 import { defineChain } from 'viem'
+import { enabledChains } from './networkConfig'
 
 // Ethereum Classic (netId 61, networkConfig.js) isn't in viem's built-in chain list, unlike the
 // other 8 chains this app supports - defined manually from the same source of truth.
@@ -17,6 +18,10 @@ export const classic = defineChain({
     default: { name: 'Blockscout', url: 'https://etc.blockscout.com' }
   }
 })
+
+const allChains = [mainnet, bsc, classic, optimism, polygon, arbitrum, gnosis, avalanche, sepolia] as const
+const chains = allChains.filter((chain) => enabledChains.includes(String(chain.id)))
+const configuredChains = (chains.length ? chains : allChains) as unknown as typeof allChains
 
 // getDefaultConfig's own wallet list (the RainbowKit "Configure" docs' default) hardcodes a
 // static "Popular" group - Safe, Rainbow, Base, MetaMask, WalletConnect - that's ALWAYS shown
@@ -50,7 +55,7 @@ export const classic = defineChain({
 export const wagmiConfig: Config = getDefaultConfig({
   appName: 'Tornado Cash',
   projectId: import.meta.env.VITE_WALLETCONNECT_PROJECT_ID || '',
-  chains: [mainnet, bsc, classic, optimism, polygon, arbitrum, gnosis, avalanche, sepolia],
+  chains: configuredChains,
   wallets: [
     {
       groupName: 'Other',

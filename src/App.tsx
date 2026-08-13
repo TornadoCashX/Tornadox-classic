@@ -1,4 +1,4 @@
-import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { lazy, Suspense, type ReactNode } from 'react'
 import { WagmiProvider } from 'wagmi'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
@@ -61,7 +61,7 @@ const App = () => {
           <NoticeProvider>
             <AppProvider>
               <RainbowKitAppShell>
-                <HashRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+                <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
                   <RouteMetadata />
                   <TransactionsProvider>
                     <AccountProvider>
@@ -93,7 +93,7 @@ const App = () => {
                       </StatisticProvider>
                     </AccountProvider>
                   </TransactionsProvider>
-                </HashRouter>
+                </BrowserRouter>
                 <Notices />
               </RainbowKitAppShell>
             </AppProvider>

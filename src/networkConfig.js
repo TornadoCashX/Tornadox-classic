@@ -1,5 +1,27 @@
 export const blockSyncInterval = 10000
-export const enabledChains = ['1', '10', '56', '61', '100', '137', '42161', '43114', '11155111']
+export const defaultEnabledChains = ['1', '10', '56', '61', '100', '137', '42161', '43114', '11155111']
+
+const readEnabledChainsEnv = () => {
+  const browserValue = globalThis.__APP_PUBLIC_ENV__?.VITE_ENABLED_CHAINS || ''
+  if (browserValue && !browserValue.startsWith('%')) return browserValue
+
+  if (typeof process !== 'undefined') return process.env?.VITE_ENABLED_CHAINS || ''
+  return ''
+}
+
+export const parseEnabledChains = (value, fallback = defaultEnabledChains) => {
+  if (!value || value.trim().toLowerCase() === 'all') return fallback
+
+  const allowed = new Set(fallback)
+  const chains = value
+    .split(',')
+    .map((chainId) => chainId.trim())
+    .filter((chainId, index, list) => allowed.has(chainId) && list.indexOf(chainId) === index)
+
+  return chains.length ? chains : fallback
+}
+
+export const enabledChains = parseEnabledChains(readEnabledChainsEnv())
 export default {
   netId1: {
     rpcCallRetryAttempt: 15,

@@ -116,12 +116,27 @@
 }
 
 .dropdown-langs {
+  display: inline-flex;
+  flex: 0 0 24px;
   margin-bottom: .5rem;
+  position: relative;
+  width: 24px;
 
   .dropdown-menu {
-    min-width: auto;
+    top: auto;
+    right: 0;
+    bottom: calc(100% + 0.35rem);
+    left: auto;
+    min-width: 100px;
     padding-top: 0;
     padding-bottom: 4px;
+    transform: none;
+    width: 100px;
+  }
+
+  .dropdown-trigger {
+    flex: 0 0 24px;
+    width: 24px !important;
   }
 
   &.is-mobile-modal {
@@ -129,6 +144,7 @@
       // !important: Vite's Sass pipeline resolves this stylesheet's cascade order
       // differently from Nuxt/webpack's, so buefy's own mobile-modal max-width:460px
       // rule (same specificity) otherwise wins the source-order tiebreak here.
+      min-width: 100px !important;
       max-width: 100px !important;
     }
   }

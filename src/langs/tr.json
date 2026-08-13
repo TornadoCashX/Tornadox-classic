@@ -356,5 +356,30 @@
     "fee": "Ücret"
   },
   "withdrawalQueueIsOverloaded": "Çekim kuyruğu aşırı yoğun",
-  "freezeRisk": "{currency} merkezileştirilmiş bir token olup dondurulma riski taşır."
+  "freezeRisk": "{currency} merkezileştirilmiş bir token olup dondurulma riski taşır.",
+  "seo": {
+    "home": {
+      "title": "Tornado Cash gizli işlemler",
+      "description": "Bu bağımsız Tornadocash / Tornado Cash uygulamasını Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche, Ethereum Classic ve Sepolia testnet üzerinde privacy transactions, gizli yatırma ve çekme işlemleri için crypto mixer olarak kullanın."
+    },
+    "faq": {
+      "whatIsTornado": {
+        "question": "Tornado Cash nedir?",
+        "answer": "Tornado Cash, yatırma adresi ile çekme adresi arasındaki herkese açık bağlantıyı azaltmak için akıllı sözleşmeler ve sıfır bilgi ispatları kullanan saklamasız bir gizlilik protokolüdür."
+      },
+      "cryptoMixer": {
+        "question": "Crypto mixer nedir?",
+        "answer": "Crypto mixer, blockchain işlem izlerini takip etmeyi zorlaştıran bir gizlilik aracıdır. Tornado Cash, saklamalı bir operatör yerine paylaşılan havuzlar ve kriptografik ispatlar kullanarak yatırma ve çekme etkinlikleri arasındaki herkese açık bağlantıyı azaltmaya yardımcı olur."
+      },
+      "supportedChains": {
+        "question": "Hangi zincirler destekleniyor?",
+        "answer": "Desteklenen ağlar Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche, Ethereum Classic ve Sepolia testnet ağlarıdır."
+      },
+      "privateDeposits": {
+        "question": "Gizli yatırma ve çekme işlemleri nasıl çalışır?",
+        "answer": "Gizli yatırma işlemi bir not oluşturur ve akıllı sözleşme havuzuna bir taahhüt ekler. Çekme işlemi, geçerli ve harcanmamış bir notun var olduğunu, bu ispatı hangi yatırmanın oluşturduğunu açıklamadan göstermek için sıfır bilgi ispatı kullanır."
+      },
+      "label": "Tornado Cash SSS"
+    }
+  }
 }

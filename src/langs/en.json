@@ -370,5 +370,30 @@
     "issue": "issue",
     "alternative": "alternative"
   },
-  "freezeRisk": "{currency} is a centralized token with the risk of freezing."
+  "freezeRisk": "{currency} is a centralized token with the risk of freezing.",
+  "seo": {
+    "home": {
+      "title": "Tornado Cash privacy transactions",
+      "description": "Use this independent Tornadocash / Tornado Cash app as a crypto mixer for privacy transactions, private deposits and withdrawals across Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche, Ethereum Classic and Sepolia testnet."
+    },
+    "faq": {
+      "whatIsTornado": {
+        "question": "What is Tornado Cash?",
+        "answer": "Tornado Cash is a non-custodial privacy protocol that uses smart contracts and zero-knowledge proofs to reduce the public link between a deposit address and a withdrawal address."
+      },
+      "cryptoMixer": {
+        "question": "What is a crypto mixer?",
+        "answer": "A crypto mixer is a privacy tool that makes blockchain transaction trails harder to follow. Tornado Cash uses shared pools and cryptographic proofs rather than a custodial operator, helping reduce the public link between deposit and withdrawal activity."
+      },
+      "supportedChains": {
+        "question": "Which chains are supported?",
+        "answer": "Supported networks include Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche, Ethereum Classic and Sepolia testnet."
+      },
+      "privateDeposits": {
+        "question": "How do private deposits and withdrawals work?",
+        "answer": "A private deposit creates a note and adds a commitment to a smart-contract pool. A withdrawal uses a zero-knowledge proof to show that a valid unspent note exists without revealing which deposit created the proof."
+      },
+      "label": "Tornado Cash FAQ"
+    }
+  }
 }

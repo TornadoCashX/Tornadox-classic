@@ -1,7 +1,7 @@
 {
     "name": "Tornado Cash",
     "short_name": "Tornado Cash",
-    "description": "A secure, anonymous, decentralized protocol for private transactions across supported EVM networks.",
+    "description": "An independent Tornado Cash app for privacy transactions, private deposits, withdrawals and compliance reports on Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche and Ethereum Classic.",
     "id": "/",
     "start_url": "/",
     "scope": "/",

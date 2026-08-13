@@ -349,5 +349,30 @@
       "disabled": "Мобільні гаманці не підтримують цю функцію в даний момент."
     }
   },
-  "freezeRisk": "{currency} - це централізований токен із ризиком заморожування."
+  "freezeRisk": "{currency} - це централізований токен із ризиком заморожування.",
+  "seo": {
+    "home": {
+      "title": "Приватні транзакції Tornado Cash",
+      "description": "Використовуйте цей незалежний застосунок Tornadocash / Tornado Cash як crypto mixer для privacy transactions, приватних депозитів і виведень в Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche, Ethereum Classic і Sepolia testnet."
+    },
+    "faq": {
+      "whatIsTornado": {
+        "question": "Що таке Tornado Cash?",
+        "answer": "Tornado Cash — це некастодіальний протокол приватності, який використовує смарт-контракти та докази з нульовим розголошенням, щоб зменшити публічний зв’язок між адресою депозиту та адресою виведення."
+      },
+      "cryptoMixer": {
+        "question": "Що таке crypto mixer?",
+        "answer": "Crypto mixer — це інструмент приватності, який ускладнює відстеження транзакцій у блокчейні. Tornado Cash використовує спільні пули та криптографічні докази, а не кастодіального оператора, допомагаючи зменшити публічний зв’язок між депозитами та виведеннями."
+      },
+      "supportedChains": {
+        "question": "Які мережі підтримуються?",
+        "answer": "Підтримуються Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche, Ethereum Classic і Sepolia testnet."
+      },
+      "privateDeposits": {
+        "question": "Як працюють приватні депозити та виведення?",
+        "answer": "Приватний депозит створює note і додає commitment у пул смарт-контракту. Виведення використовує доказ з нульовим розголошенням, щоб показати наявність чинної невикористаної note, не розкриваючи, який депозит створив доказ."
+      },
+      "label": "FAQ Tornado Cash"
+    }
+  }
 }

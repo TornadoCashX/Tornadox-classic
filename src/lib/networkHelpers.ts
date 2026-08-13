@@ -1,11 +1,14 @@
-import networkConfig from '@/networkConfig'
+import networkConfig, { enabledChains } from '@/networkConfig'
 import { getResolvedRpcUrl } from './rpcSelect'
 
 type NetworkConfigMap = Record<string, any>
 
 const config = networkConfig as unknown as NetworkConfigMap
+const enabledChainSet = new Set(enabledChains.map((chainId) => Number(chainId)))
 
 export const getNetworkConfig = (netId: number) => config[`netId${netId}`]
+export const isNetworkEnabled = (netId: number): boolean => enabledChainSet.has(Number(netId))
+export const getDefaultNetId = (): number => Number(enabledChains.find((chainId) => config[`netId${chainId}`]) || 1)
 
 // Prefers whatever rpcSelect.ts's health-check has resolved for netId (see ensureRpcSelected -
 // call that first whenever you're about to do real RPC work for a network the user just
@@ -39,7 +42,7 @@ export const getNetworkIconSlug = (netId: number): string => {
 // Matches NetworkModal.vue's `networks` computed: one entry per configured chain, in
 // networkConfig.js's declaration order.
 export const getAllNetworks = (): Array<{ chainId: number; name: string; dataTest: string }> => {
-  return Object.keys(config).map((key) => {
+  return enabledChains.map((chainId) => `netId${chainId}`).filter((key) => config[key]).map((key) => {
     const name = config[key].networkName as string
     return {
       chainId: Number(key.replace('netId', '')),

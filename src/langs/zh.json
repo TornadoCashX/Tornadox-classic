@@ -361,5 +361,30 @@
     "fee": "费用"
   },
   "withdrawalQueueIsOverloaded": "提款队列已超载",
-  "freezeRisk": "{currency}是中心化代币，存在冻结风险。"
+  "freezeRisk": "{currency}是中心化代币，存在冻结风险。",
+  "seo": {
+    "home": {
+      "title": "Tornado Cash 隐私交易",
+      "description": "使用这个独立的 Tornadocash / Tornado Cash 应用作为 crypto mixer，进行隐私交易、私密存款和提款。支持 Ethereum、BNB Chain、Polygon、Arbitrum、Optimism、Gnosis Chain、Avalanche、Ethereum Classic 和 Sepolia 测试网。"
+    },
+    "faq": {
+      "whatIsTornado": {
+        "question": "什么是 Tornado Cash？",
+        "answer": "Tornado Cash 是一种非托管隐私协议，使用智能合约和零知识证明来减少存款地址与提款地址之间的公开关联。"
+      },
+      "cryptoMixer": {
+        "question": "什么是 crypto mixer？",
+        "answer": "Crypto mixer 是一种隐私工具，用于让区块链交易路径更难被追踪。Tornado Cash 使用共享资金池和密码学证明，而不是托管运营方，从而减少存款和提款活动之间的公开关联。"
+      },
+      "supportedChains": {
+        "question": "支持哪些链？",
+        "answer": "支持的网络包括 Ethereum、BNB Chain、Polygon、Arbitrum、Optimism、Gnosis Chain、Avalanche、Ethereum Classic 和 Sepolia 测试网。"
+      },
+      "privateDeposits": {
+        "question": "私密存款和提款如何工作？",
+        "answer": "私密存款会生成凭证，并向智能合约资金池添加承诺值。提款时使用零知识证明来证明存在有效且未使用的凭证，而不公开该证明对应哪一笔存款。"
+      },
+      "label": "Tornado Cash 常见问题"
+    }
+  }
 }

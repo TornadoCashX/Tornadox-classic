@@ -2,9 +2,15 @@ const { isAddress } = require('viem')
 const networkConfigModule = require('./networkConfig')
 
 const networkConfig = networkConfigModule.default || networkConfigModule
-const { enabledChains } = networkConfigModule
+const { defaultEnabledChains, enabledChains, parseEnabledChains } = networkConfigModule
 
 describe('networkConfig', () => {
+  it('parses the enabled chain env allowlist safely', () => {
+    expect(parseEnabledChains('1,56,56,999')).toEqual(['1', '56'])
+    expect(parseEnabledChains('all')).toEqual(defaultEnabledChains)
+    expect(parseEnabledChains('999')).toEqual(defaultEnabledChains)
+  })
+
   it('has one complete config entry for every enabled chain', () => {
     expect(enabledChains.length).toBeGreaterThan(0)
 

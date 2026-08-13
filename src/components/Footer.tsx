@@ -54,7 +54,7 @@ const Footer = () => {
                   </a>
                   <a
                     className="button is-icon"
-                    href="https://github.com/williamdrivera/tornadocash-classic"
+                    href="https://github.com/TornadoCashX/Tornadox-classic"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Tornado Cash source code on GitHub"
@@ -64,7 +64,7 @@ const Footer = () => {
                   <div className="break" />
                   <div
                     ref={langRef}
-                    className={`dropdown dropdown-langs is-top-left is-mobile-modal ${isLangOpen ? 'is-active' : ''}`}
+                    className={`dropdown dropdown-langs is-top-right is-mobile-modal ${isLangOpen ? 'is-active' : ''}`}
                   >
                     <button
                       type="button"

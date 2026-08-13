@@ -47,6 +47,28 @@ const HomePage = () => {
         <Statistics />
       </div>
       <Transactions />
+      <section className="seo-content" aria-labelledby="privacy-transactions-title">
+        <h2 id="privacy-transactions-title">{t('seo.home.title')}</h2>
+        <p>{t('seo.home.description')}</p>
+        <div className="seo-faq" aria-label={t('seo.faq.label')}>
+          <details>
+            <summary>{t('seo.faq.whatIsTornado.question')}</summary>
+            <p>{t('seo.faq.whatIsTornado.answer')}</p>
+          </details>
+          <details>
+            <summary>{t('seo.faq.cryptoMixer.question')}</summary>
+            <p>{t('seo.faq.cryptoMixer.answer')}</p>
+          </details>
+          <details>
+            <summary>{t('seo.faq.supportedChains.question')}</summary>
+            <p>{t('seo.faq.supportedChains.answer')}</p>
+          </details>
+          <details>
+            <summary>{t('seo.faq.privateDeposits.question')}</summary>
+            <p>{t('seo.faq.privateDeposits.answer')}</p>
+          </details>
+        </div>
+      </section>
     </>
   )
 }

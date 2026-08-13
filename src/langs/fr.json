@@ -356,5 +356,30 @@
     "fee": "Fee"
   },
   "withdrawalQueueIsOverloaded": "Withdrawal queue is overloaded",
-  "freezeRisk": "{currency} est un jeton centralisé avec un risque de gel."
+  "freezeRisk": "{currency} est un jeton centralisé avec un risque de gel.",
+  "seo": {
+    "home": {
+      "title": "Transactions privées Tornado Cash",
+      "description": "Utilisez cette app indépendante Tornadocash / Tornado Cash comme crypto mixer pour les privacy transactions, les dépôts privés et les retraits sur Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche, Ethereum Classic et Sepolia testnet."
+    },
+    "faq": {
+      "whatIsTornado": {
+        "question": "Qu’est-ce que Tornado Cash ?",
+        "answer": "Tornado Cash est un protocole de confidentialité non custodial qui utilise des contrats intelligents et des preuves à connaissance nulle pour réduire le lien public entre une adresse de dépôt et une adresse de retrait."
+      },
+      "cryptoMixer": {
+        "question": "Qu’est-ce qu’un crypto mixer ?",
+        "answer": "Un crypto mixer est un outil de confidentialité qui rend les traces de transactions blockchain plus difficiles à suivre. Tornado Cash utilise des pools partagés et des preuves cryptographiques plutôt qu’un opérateur custodial, ce qui aide à réduire le lien public entre les dépôts et les retraits."
+      },
+      "supportedChains": {
+        "question": "Quelles chaînes sont prises en charge ?",
+        "answer": "Les réseaux pris en charge incluent Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Gnosis Chain, Avalanche, Ethereum Classic et Sepolia testnet."
+      },
+      "privateDeposits": {
+        "question": "Comment fonctionnent les dépôts et retraits privés ?",
+        "answer": "Un dépôt privé crée une note et ajoute un engagement dans un pool de contrat intelligent. Un retrait utilise une preuve à connaissance nulle pour démontrer qu’une note valide et non dépensée existe sans révéler quel dépôt a créé la preuve."
+      },
+      "label": "FAQ Tornado Cash"
+    }
+  }
 }

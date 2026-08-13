@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 
 import { useWallet, type WalletState } from '@/hooks/useWallet'
-import { getNetworkConfig } from '@/lib/networkHelpers'
+import { getDefaultNetId, getNetworkConfig, isNetworkEnabled } from '@/lib/networkHelpers'
 import { type SelectedRelayer } from '@/lib/relayerSetup'
 import { ensureRpcSelected } from '@/lib/rpcSelect'
 
@@ -38,7 +38,7 @@ interface AppContextValue {
 const AppContext = createContext<AppContextValue | null>(null)
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
-  const [netId, setNetId] = useState(1)
+  const [netId, setNetId] = useState(() => getDefaultNetId())
   const [selectedCurrency, setSelectedCurrency] = useState('eth')
   const [selectedAmount, setSelectedAmount] = useState(0.1)
   const [selectedRelayer, setSelectedRelayer] = useState<SelectedRelayer | null>(null)
@@ -51,6 +51,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   }
 
   const handleSetNetId = (nextNetId: number) => {
+    if (!isNetworkEnabled(nextNetId)) return
+
     setNetId(nextNetId)
     const config = getNetworkConfig(nextNetId)
     const currency = config.nativeCurrency
@@ -74,7 +76,13 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   // the user switched networks directly inside their wallet extension - either way Deposit and
   // Withdraw need to end up looking at the same chain the wallet will actually sign against.
   useEffect(() => {
-    if (wallet.isConnected && wallet.netId !== null && wallet.netId !== netId && getNetworkConfig(wallet.netId)) {
+    if (
+      wallet.isConnected &&
+      wallet.netId !== null &&
+      wallet.netId !== netId &&
+      isNetworkEnabled(wallet.netId) &&
+      getNetworkConfig(wallet.netId)
+    ) {
       handleSetNetId(wallet.netId)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
